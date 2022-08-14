@@ -10,3 +10,16 @@ Task: Find the top 10 nearest (closest) neighbours to the given query (which is 
 the data `D` in < 1 second.
 
 ## Usage Instructions
+
+Ensure the following Python libraries have been installed:
+```
+Numpy
+Pandas
+Scipy
+```
+
+Then, to execute the brute force approach which is running on only some toy data of size 10K (each still in
+100-dimensional space), one can execute the following command:-
+```shell
+python3 brute_force.py
+```
