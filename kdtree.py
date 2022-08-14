@@ -6,19 +6,19 @@ from scipy.spatial import KDTree
 np.random.seed(3)  # to ensure all the runs are repeatable
 
 """
-## Toy Data (10K X 100)
-10 Queries
+## Actual Data (10M X 100)
+20 Queries
 """
 
 print(
     '''
-    K-D Tree approach on Toy Data of size (10K X 100)
+    K-D Tree approach on Actual Data of size (10M X 100)
     
     Initializing the data, followed by some preprocessing (creating the tree)...
     '''
 )
 
-actual_data_size = (int(1e4), 100)  # 10K X 100
+actual_data_size = (int(1e7), 100)  # 10M X 100
 
 # points uniformly distributed in the range [-100,100] in 100-dimensional space
 actual_data = np.random.rand(actual_data_size[0], actual_data_size[1]) * 200 - 100
@@ -31,7 +31,7 @@ print(
     
     Done.
     
-    Creating 10 random query points...
+    Creating 20 random query points...
     '''
 )
 
@@ -84,11 +84,11 @@ results = pd.concat(results)
 results['index'] = results.index
 results.set_index(['query', 'index'], inplace=True)
 
-print('Results of all 10 queries:-')
+print('Results of all 20 queries:-')
 print(results)
 
 # results.to_csv('actual_results.csv')
 
-print('\n\nAll runs complete. Execution time details over 10 queries :-')
+print('\n\nAll runs complete. Execution time details over 20 queries :-')
 print(pd.Series([np.median(all_times), np.mean(all_times), np.std(all_times), np.min(all_times), np.max(all_times)],
                 index=['Median', 'Mean', 'Standard deviation', 'Minima', 'Maxima']))
